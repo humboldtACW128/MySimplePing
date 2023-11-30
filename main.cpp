@@ -33,6 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, 
         string ip = "";
         while(ip != "exit") {
             auto data = SendData;
+            printf("You may enter \"exit\" to quit the program.\n");
             printf("Enter IP address: ");
             cin >> ip;
             if(ip == "exit") {
@@ -56,9 +57,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, 
                 if(pEchoReply->Status == 11010) {
                     printf("Received ICMP timeout with status: %ld\n", pEchoReply->Status);
                 }
-                // else {
-                //     printf("Recieved unchecked ICMP status with: %ld\n",pEchoReply->Status);
-                // }
+                else {
+                    printf("Recieved unchecked ICMP status with: %ld\n",pEchoReply->Status);
+                }
             }
         }
         IcmpCloseHandle(hICMPFile);
